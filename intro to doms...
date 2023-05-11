@@ -1,0 +1,35 @@
+the main code used in search engines is most commonly C++ 
+im writing mine in rust because this is just a draft towards a bigger project and i enjoy rust 	┐(‘～` )┌
+let us start with the DOM !!! i will briefly explain everything i do for later referencing purposes 
+the DOM is a tree of nodes .. ignoring other attributes, each node has zero or more children 
+we will only need to look at element or text nodes ! 
+in our code these nodes would fall into the name enum which is the rust keyword for "sum type" or "tagged union"
+por exemple;
+enum NodeType {
+    Text(String),
+    Element(ElementData),
+}
+an element includes a tag name and any number of attribute - which can be stored as a map of anything; from names to values 
+robinsons dom module doesn't support namespaces, so it just stores tag and attribute names as simple strings instead o(TヘTo)
+like dis;
+struct ElementData {
+    tag_name: String,
+    attributes: AttrMap,
+}
+
+type AttrMap = HashMap<String, String>;
+now we look at constructor functions so it's easier to create new nodes 
+fn text(data: String) -> Node {
+    Node { children: Vec::new(), node_type: NodeType::Text(data) }
+}
+
+fn elem(name: String, attrs: AttrMap, children: Vec<Node>) -> Node {
+    Node {
+        children: children,
+        node_type: NodeType::Element(ElementData {
+            tag_name: name,
+            attributes: attrs,
+        })
+    }
+}
+yay ! full dom implementation .. sort of !! a full one would need a lot more data and methods but this is fine for now.. 	┐(￣ヘ￣;)┌
