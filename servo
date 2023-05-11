@@ -1,0 +1,25 @@
+servo time !! again, this is for rust, won't be applicable if you are using a different code but interesting nonetheless
+THIS REQUIRES A LONG LIST OF INSTALLATIONS IF YOU HAVENT DONE IT BEFORE ! 
+so servo is a prototype search engine/browser written in rust ! 	°˖✧◝(⁰▿⁰)◜✧˖°
+building servo requires rustup v 1.8.0 or higher ! 
+ ---------> if you do not have rustup, for windows, download and run rustup-init.exe and then go from there ! 
+other things to install would be python 3.9 to build the javascript engine; spider monkey
+also have a little look at setting the PYTHON3 environment variable through running;
+    setex PYTHON3 "C:\Python39\python.exe" /m
+the /m allows it to become system-wide for future command windows, so you can skip this step in the future ♡(>ᴗ•)
+you also need to install virtualenv ! 
+in just your normal windows shell cmd run;
+  pip install virutalenv 
+ next step would be to install the most recent GStreamer MSVC packages, download the two .msi files for your platform from the GStreamer website and install them
+ I use version 1.16.0 
+ Install Git for window also, allow it to add git.exe to the PATH 
+ Install Visual studio Build tools 2019 also, i installed via chocolatey with the code
+    choco install -y visualstudio2019buildtools --package-parameters="--add Microsoft.VisualStudio.Component.Roslyn.Compiler --add Microsoft.Component.MSBuild --add Microsoft.VisualStudio.Component.CoreBuildTools --add Microsoft.VisualStudio.Workload.MSBuildTools --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.VC.CoreBuildTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.VC.Redist.14.Latest --add Microsoft.VisualStudio.Component.VC.ATL --add Microsoft.VisualStudio.Component.VC.ATLMFC --add Microsoft.VisualStudio.Component.TextTemplating --add Microsoft.VisualStudio.Component.VC.CoreIde --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core --add Microsoft.VisualStudio.Workload.VCTools"
+make sure this is installed to default location also so mach.bat can find them lol
+this ones optional but to make the link times faster i installed LLVM 
+I added it to my system PATH and then added the following to my cargo config;
+    [target.x86_64-pc-windows-msvc]
+linker = "lld-link.exe"
+your cargo_home needs to point to/ be in the same drive as the servo repository ;
+    git clone https://github.com/servo/servo
+cd servo
