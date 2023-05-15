@@ -1,5 +1,5 @@
-servo time !! again, this is for rust, won't be applicable if you are using a different code but interesting nonetheless
-THIS REQUIRES A LONG LIST OF INSTALLATIONS IF YOU HAVENT DONE IT BEFORE ! 
+servo time !! again, this is a search engine specific to rust, won't be entirely applicable if you are using a different code but interesting nonetheless
+BTW....THIS REQUIRES A LONG LIST OF INSTALLATIONS IF YOU HAVENT DONE IT BEFORE ! 
 so servo is a prototype search engine/browser written in rust ! 	°˖✧◝(⁰▿⁰)◜✧˖°
 building servo requires rustup v 1.8.0 or higher ! 
  ---------> if you do not have rustup, for windows, download and run rustup-init.exe and then go from there ! 
